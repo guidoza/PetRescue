@@ -64,6 +64,16 @@ export class LoginPage {
         }
     }
 
+    doFacebookLogin(){
+        this.auth.login('facebook').then(() => {
+            console.log("Facebook Login successful");
+            this.nav.setRoot(HomePage);        
+        }, (err) => {
+            console.log(err.message);
+        }
+        );
+    }
+
     doRegister() {
         if(!this.showLogin) {
         console.log('process register');
