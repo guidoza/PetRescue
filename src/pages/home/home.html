@@ -17,8 +17,16 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
-  <ion-card *ngFor="let pet of petList">
-    <img src="{{pet.icon}}"/>
+  <ion-card *ngFor="let pet of petList" style="height:50%">
+    
+    <ion-slides pager *ngIf="petList" style="height:70%">
+      <ion-slide *ngFor="let icon of pet.icons">
+        <img [src]="icon">
+      </ion-slide>
+    </ion-slides>
+
+
+    <!--<img src="{{pet.icon}}" style="height:70%"/>-->
     <ion-card-content>
       <ion-card-title>
         {{pet.title}}
@@ -39,13 +47,19 @@
 </ion-content>
 
 <ion-content padding *ngIf="!platform.is('ios') && !platform.is('android') && !platform.is('windows')">
-  <div class= "container" style="padding-left: 200px !important; padding-right: 200px!important">
+  <div class= "container" style="padding-left: 23% !important; padding-right: 23%!important">
+    
     <ion-refresher (ionRefresh)="loadTimeline($event)">
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
 
-    <ion-card *ngFor="let pet of petList">
-      <img src="{{pet.icon}}"/>
+    <ion-card *ngFor="let pet of petList" style="height:500px">
+      <ion-slides pager *ngIf="petList" style="height:70%">
+        <ion-slide *ngFor="let icon of pet.icons">
+          <img [src]="icon">
+        </ion-slide>
+      </ion-slides>
+      <!--<img src="{{pet.icon}}" style="height:70%"/>-->
       <ion-card-content>
         <ion-card-title>
           {{pet.title}}

@@ -8,8 +8,8 @@ import { Auth, User } from '@ionic/cloud-angular';
   templateUrl: 'home.html'
 })
 export class HomePage {
-  petIcons: string[] = ["assets/dog.png", "assets/wolf.png", "assets/elephants.png"];
-  petList: Array<{title: string, description: string, icon: string}>;  
+  petIcons: string[] = ["assets/dog1.png", "assets/dog2.png", "assets/dog3.png"];
+  petList: Array<{title: string, description: string, icons: Array<String>}>;  
   loading: Loading;
 
   constructor(public auth:Auth, public navCtrl: NavController, public user: User, 
@@ -19,7 +19,7 @@ export class HomePage {
       this.petList.push({
         title: 'Pet ' + i,
         description: 'This is an incredible pet' + i,
-        icon: this.petIcons[i]
+        icons: this.petIcons
       });
     }  
   }
